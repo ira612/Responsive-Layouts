@@ -1,0 +1,73 @@
+/* ==========================================================================
+   FLEXBOX.CSS
+   Layout for the pricing cards using FLEXBOX ONLY.
+   Loaded after common.css — common.css supplies variables, card content
+   styling (price, features, buttons), header/hero/footer. This file is
+   only responsible for arranging the three cards.
+   ========================================================================== */
+
+/*
+  .pricing-cards is the flex container.
+  - display: flex            -> turns the row of cards into a flex layout
+  - flex-wrap: wrap          -> lets cards drop to a new line on small screens
+  - justify-content: center  -> centers cards horizontally with breathing room
+  - align-items: stretch     -> makes all 3 cards equal height regardless of content
+  - gap                      -> spacing between cards (replaces margin hacks)
+*/
+.pricing-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-lg);
+}
+
+/*
+  Each .card is a flex ITEM.
+  - flex-basis defines the "natural" width each card wants (~3 per row)
+  - flex-grow: 1 lets cards expand to fill leftover space evenly
+  - flex-shrink: 1 (default) lets them shrink gracefully on smaller screens
+  - max-width keeps a card from growing too wide when it wraps alone
+*/
+.pricing-cards .card {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 300px;
+  max-width: 360px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — Flexbox layout adapts purely through flex-wrap + flex-basis
+   -------------------------------------------------------------------------- */
+
+/* Tablet: ~600px–900px -> two cards per row, natural DOM order
+   (Basic + Pro), Enterprise wraps to its own row underneath. No `order`
+   is used here — cards flow in source order, so this row purely
+   demonstrates flex-wrap + flex-basis, not manual reordering. */
+@media (max-width: 900px) {
+  .pricing-cards {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pricing-cards .card {
+    flex-basis: 45%;
+    max-width: 380px;
+  }
+}
+
+/* Mobile: below 600px -> single column stack, one card per row,
+   in natural source order: Basic, Pro, Enterprise. */
+@media (max-width: 600px) {
+  .pricing-cards {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pricing-cards .card {
+    flex-basis: auto;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,69 @@
+/* ==========================================================================
+   GRID.CSS
+   Layout for the pricing cards using CSS GRID ONLY.
+   Loaded after common.css — common.css supplies variables, card content
+   styling (price, features, buttons), header/hero/footer. This file is
+   only responsible for arranging the three cards.
+   ========================================================================== */
+
+/*
+  .pricing-cards is the grid container.
+  - display: grid                          -> establishes the grid formatting context
+  - grid-template-columns: repeat(3, 1fr)  -> 3 equal-width columns on desktop
+  - grid-template-areas                    -> names each card's slot so the
+                                               source order can differ from the
+                                               visual order without JS
+  - gap                                    -> spacing between rows/columns
+  - align-items: stretch                   -> equal-height cards
+*/
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "basic pro enterprise";
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+.card--basic {
+  grid-area: basic;
+}
+
+.card--featured {
+  grid-area: pro;
+}
+
+.card--enterprise {
+  grid-area: enterprise;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — Grid layout adapts by re-declaring grid-template-areas,
+   which is one of Grid's biggest advantages over Flexbox: the VISUAL order
+   can be redefined per breakpoint without touching the HTML source order.
+   -------------------------------------------------------------------------- */
+
+/* Tablet: ~600px–900px -> two columns, natural source order.
+   Basic and Pro share the top row, Enterprise spans both columns
+   below — the same visual result as the Flexbox version at this
+   breakpoint, just declared with grid-template-areas instead of
+   flex-wrap + flex-basis. */
+@media (max-width: 900px) {
+  .pricing-cards {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "basic pro"
+      "enterprise enterprise";
+  }
+}
+
+/* Mobile: below 600px -> single column, one card per row,
+   Basic -> Pro -> Enterprise. */
+@media (max-width: 600px) {
+  .pricing-cards {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "basic"
+      "pro"
+      "enterprise";
+  }
+}

@@ -1,0 +1,169 @@
+/* ==========================================================================
+   DOCS.CSS
+   Typography for the browser-readable documentation pages
+   (README.html, comparison.html). Reuses common.css tokens/colors so
+   these pages match the rest of the site, but only these two pages
+   load this file.
+   ========================================================================== */
+
+.doc {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.doc-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.doc-content h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-xs);
+}
+
+.doc-content > p:first-of-type {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-lg);
+}
+
+.doc-content h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.doc-content h3 {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary-dark);
+}
+
+.doc-content p {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.doc-content ul,
+.doc-content ol {
+  margin: 0 0 var(--space-sm) var(--space-md);
+  color: var(--color-text);
+}
+
+.doc-content li {
+  margin-bottom: 0.35rem;
+  line-height: 1.65;
+}
+
+.doc-content li::marker {
+  color: var(--color-primary);
+}
+
+.doc-content code {
+  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  color: var(--color-primary-dark);
+}
+
+.doc-content pre {
+  background: var(--color-dark-surface);
+  color: #f4f1e8;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-md);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.doc-content pre code {
+  background: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+}
+
+.doc-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-md);
+  font-size: 0.92rem;
+}
+
+.doc-content th,
+.doc-content td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+}
+
+.doc-content th {
+  background: var(--color-surface-raised);
+  font-weight: 600;
+}
+
+.doc-content blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--space-sm);
+  color: var(--color-text-muted);
+  margin: var(--space-sm) 0;
+}
+
+.doc-content hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-lg) 0;
+}
+
+.doc-content a {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.doc-content .checklist {
+  list-style: none;
+  margin-left: 0;
+}
+
+.doc-content .checklist li {
+  padding-left: 1.6rem;
+  position: relative;
+}
+
+.doc-content .checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 3px;
+}
+
+.doc-content .checklist li::marker {
+  content: '';
+}
+
+.doc-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: var(--space-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
