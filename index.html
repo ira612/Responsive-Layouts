@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox vs Grid Demo — Pricing Layout Comparison</title>
+  <meta name="description" content="A side-by-side comparison of the same SaaS pricing section built with Flexbox and with CSS Grid.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">Flexbox <span>vs Grid</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="flexbox.html">Flexbox Version</a>
+        <a href="grid.html">Grid Version</a>
+        <a href="README.html">Read Me</a>
+        <a href="comparison.html">Comparison</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="flexbox.html" class="btn btn-outline">Flexbox</a>
+        <a href="grid.html" class="btn btn-primary">Grid</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Frontend Internship Task</span>
+        <h1>One pricing section. Two ways to build it.</h1>
+        <p>This project demonstrates how the same responsive pricing layout can be built using two different CSS layout systems — Flexbox and CSS Grid — while keeping the visuals and user experience identical.</p>
+        <div class="hero-actions">
+          <a href="flexbox.html" class="btn btn-light">View Flexbox Demo</a>
+          <a href="grid.html" class="btn btn-outline" style="border-color: rgba(184,137,47,0.4); color:#1c1a17;">Compare Grid Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="choice-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Compare Layout Systems</span>
+          <h2>Pick a version to explore</h2>
+          <p>Both pages share the same HTML structure, content, and visual design — only the pricing card layout technique differs.</p>
+        </div>
+
+        <div class="choice-grid">
+          <div class="choice-card">
+            <span class="tag">Version 1</span>
+            <h3>Flexbox Layout</h3>
+            <p>Uses <code>display: flex</code>, <code>flex-wrap</code>, <code>justify-content</code>, and <code>gap</code> to arrange the three pricing cards in a single flexible row.</p>
+            <ul>
+              <li>File: flexbox.html + css/flexbox.css</li>
+              <li>One-dimensional layout model</li>
+              <li>Great for content-driven sizing</li>
+            </ul>
+            <a href="flexbox.html" class="btn btn-primary btn-block">View Flexbox Version</a>
+          </div>
+
+          <div class="choice-card">
+            <span class="tag">Version 2</span>
+            <h3>CSS Grid Layout</h3>
+            <p>Uses <code>display: grid</code>, <code>grid-template-columns</code>, and <code>grid-template-areas</code> to place cards on an explicit two-dimensional grid.</p>
+            <ul>
+              <li>File: grid.html + css/grid.css</li>
+              <li>Two-dimensional layout model</li>
+              <li>Great for precise, structural placement</li>
+            </ul>
+            <a href="grid.html" class="btn btn-primary btn-block">View Grid Version</a>
+          </div>
+        </div>
+
+        <p class="docs-links">
+          Want the write-up instead? Read the <a href="README.html">README</a> for setup &amp; features, or <a href="comparison.html">the comparison</a> for the Flexbox vs Grid breakdown.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Flexbox <span>vs Grid</span></a>
+          <p>A frontend internship demo comparing Flexbox and CSS Grid on one identical pricing layout — built with plain HTML5 and CSS3, no frameworks.</p>
+        </div>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 5.5c-.7.3-1.4.5-2.2.6.8-.5 1.4-1.2 1.6-2.1-.7.4-1.5.7-2.4.9A3.7 3.7 0 0 0 12 8c0 .3 0 .6.1.8-3-.1-5.7-1.6-7.5-3.8-.3.6-.5 1.2-.5 1.9 0 1.3.7 2.5 1.7 3.1-.6 0-1.2-.2-1.7-.4v.1c0 1.9 1.3 3.4 3.1 3.8-.3.1-.7.1-1 .1-.3 0-.5 0-.7-.1.5 1.5 1.9 2.6 3.6 2.7A7.4 7.4 0 0 1 3 18.3 10.4 10.4 0 0 0 8.7 20c6.9 0 10.6-5.7 10.6-10.6v-.5c.7-.5 1.4-1.2 1.7-2z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/duaa-rana-b057b72b4/" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="7" y1="10.5" x2="7" y2="17"/><circle cx="7" cy="7" r="0.6" fill="currentColor" stroke="none"/><path d="M11 17v-4a2 2 0 0 1 4 0v4"/><line x1="11" y1="10.5" x2="11" y2="17"/></svg>
+          </a>
+          <a href="https://github.com/ira612?tab=repositories" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 3 12 9 6"/><polyline points="15 6 21 12 15 18"/></svg>
+          </a>
+          <a href="https://www.instagram.com/itx_duarana/" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.2"/><path d="M8 7l1.3-2h5.4L16 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Flexbox vs Grid Demo. Built for a frontend internship task.</p>
+        <div class="footer-links">
+          <a href="flexbox.html">Flexbox Version</a>
+          <a href="grid.html">Grid Version</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

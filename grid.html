@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox vs Grid Demo — Grid Version</title>
+  <meta name="description" content="A pricing page built with CSS Grid only, as part of a Flexbox vs Grid layout comparison demo.">
+
+  <!-- Google Font: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared styles, then the Grid-specific layout file -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/grid.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <div class="method-banner">
+    Layout method: <strong>Grid only</strong> · <code>display:grid</code> · <a href="flexbox.html">Switch to Flexbox version →</a>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">Flexbox <span>vs Grid</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#pricing" class="btn btn-outline">Log In</a>
+        <a href="#pricing" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Grid Edition</span>
+        <h1>Simple pricing for teams of every size</h1>
+        <p>A hands-on demo built for a frontend internship task — the same pricing UI, implemented twice, so the difference between Flexbox and CSS Grid is easy to see and compare.</p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-light">View Plans</a>
+          <a href="#features" class="btn btn-outline" style="border-color: rgba(184,137,47,0.4); color:#1c1a17;">See Features</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRICING ===================== -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-tag">Pricing</span>
+          <h2>Plans that grow with you</h2>
+          <p>Start free, upgrade when you need more power. Every plan includes the same core feature set — only the layout technique changes across these two demo pages.</p>
+        </div>
+
+        <!-- Grid container: display:grid is defined in css/grid.css -->
+        <div class="pricing-cards">
+
+          <!-- Basic Plan -->
+          <article class="card card--basic">
+            <p class="card-plan">Basic</p>
+            <div class="card-price">
+              <span class="amount">$9</span>
+              <span class="cycle">/ month</span>
+            </div>
+            <p class="card-desc">For individuals just getting started.</p>
+            <ul class="card-features">
+              <li><span class="icon-check">✓</span> 5 Projects</li>
+              <li><span class="icon-check">✓</span> Email Support</li>
+              <li><span class="icon-check">✓</span> Community Access</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block">Choose Basic</a>
+          </article>
+
+          <!-- Pro Plan (Highlighted) -->
+          <article class="card card--featured">
+            <span class="badge-popular">Most Popular</span>
+            <p class="card-plan">Pro</p>
+            <div class="card-price">
+              <span class="amount">$29</span>
+              <span class="cycle">/ month</span>
+            </div>
+            <p class="card-desc">For growing teams that need more room.</p>
+            <ul class="card-features">
+              <li><span class="icon-check">✓</span> Unlimited Projects</li>
+              <li><span class="icon-check">✓</span> Priority Support</li>
+              <li><span class="icon-check">✓</span> Analytics</li>
+              <li><span class="icon-check">✓</span> API Access</li>
+            </ul>
+            <a href="#contact" class="btn btn-light btn-block">Choose Pro</a>
+          </article>
+
+          <!-- Enterprise Plan -->
+          <article class="card card--enterprise">
+            <p class="card-plan">Enterprise</p>
+            <div class="card-price">
+              <span class="amount">$79</span>
+              <span class="cycle">/ month</span>
+            </div>
+            <p class="card-desc">For organizations that need full control.</p>
+            <ul class="card-features">
+              <li><span class="icon-check">✓</span> Everything in Pro</li>
+              <li><span class="icon-check">✓</span> Dedicated Manager</li>
+              <li><span class="icon-check">✓</span> Custom Integrations</li>
+              <li><span class="icon-check">✓</span> 24/7 Support</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block">Contact Sales</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimal features anchor target so nav link isn't a dead end -->
+    <section id="features" class="pricing" style="padding-top:0;">
+      <div class="container section-header">
+        <span class="section-tag">Features</span>
+        <h2>Everything you need to ship</h2>
+        <p>This demo focuses on the pricing layout comparison — full feature details live on the main product page.</p>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ (bonus feature) =====================
+         Pure HTML5 <details>/<summary> accordion — no JavaScript needed. -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">FAQ</span>
+          <h2>Questions, answered</h2>
+          <p>Still deciding on a plan? Here's what most people ask before upgrading.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Can I switch plans later?</summary>
+            <p>Yes. Upgrade or downgrade at any time — changes apply immediately and billing is prorated for the current cycle.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is there a free trial?</summary>
+            <p>Every plan includes a 14-day trial, no credit card required. You'll get a reminder before it ends.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What happens if I go over my project limit?</summary>
+            <p>We'll notify you before any limit is reached, and you can upgrade in one click — nothing is ever paused without warning.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you offer refunds?</summary>
+            <p>Yes, within 30 days of purchase, no questions asked. Reach out to our support team and we'll process it right away.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Flexbox <span>vs Grid</span></a>
+          <p>A frontend internship demo comparing Flexbox and CSS Grid on one identical pricing layout — built with plain HTML5 and CSS3, no frameworks.</p>
+        </div>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 5.5c-.7.3-1.4.5-2.2.6.8-.5 1.4-1.2 1.6-2.1-.7.4-1.5.7-2.4.9A3.7 3.7 0 0 0 12 8c0 .3 0 .6.1.8-3-.1-5.7-1.6-7.5-3.8-.3.6-.5 1.2-.5 1.9 0 1.3.7 2.5 1.7 3.1-.6 0-1.2-.2-1.7-.4v.1c0 1.9 1.3 3.4 3.1 3.8-.3.1-.7.1-1 .1-.3 0-.5 0-.7-.1.5 1.5 1.9 2.6 3.6 2.7A7.4 7.4 0 0 1 3 18.3 10.4 10.4 0 0 0 8.7 20c6.9 0 10.6-5.7 10.6-10.6v-.5c.7-.5 1.4-1.2 1.7-2z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/duaa-rana-b057b72b4/" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="7" y1="10.5" x2="7" y2="17"/><circle cx="7" cy="7" r="0.6" fill="currentColor" stroke="none"/><path d="M11 17v-4a2 2 0 0 1 4 0v4"/><line x1="11" y1="10.5" x2="11" y2="17"/></svg>
+          </a>
+          <a href="https://github.com/ira612?tab=repositories" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 3 12 9 6"/><polyline points="15 6 21 12 15 18"/></svg>
+          </a>
+          <a href="https://www.instagram.com/itx_duarana/" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.2"/><path d="M8 7l1.3-2h5.4L16 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Flexbox vs Grid Demo. Built for a frontend internship task.</p>
+        <div class="footer-links">
+          <a href="index.html">Compare Layouts</a>
+          <a href="flexbox.html">Flexbox Version</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

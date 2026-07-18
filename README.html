@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README — Flexbox vs Grid Demo</title>
+  <meta name="description" content="Project overview, features, folder structure, and setup instructions for the Flexbox vs Grid pricing layout demo.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/docs.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">Flexbox <span>vs Grid</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="flexbox.html">Flexbox Version</a>
+        <a href="grid.html">Grid Version</a>
+        <a href="README.html">Read Me</a>
+        <a href="comparison.html">Comparison</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="flexbox.html" class="btn btn-outline">Flexbox</a>
+        <a href="grid.html" class="btn btn-primary">Grid</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="doc">
+      <div class="container">
+        <div class="doc-content">
+
+          <a href="index.html" class="doc-back-link">&larr; Back to project home</a>
+
+          <h1>Flexbox vs Grid — Pricing Layout Comparison</h1>
+          <p>A frontend internship project that implements the <strong>same modern SaaS pricing page</strong> twice — once using <strong>CSS Flexbox</strong> and once using <strong>CSS Grid</strong> — to compare the two layout methods on identical content and design.</p>
+
+          <p>Built with <strong>only HTML5 and CSS3</strong>. No JavaScript, no Bootstrap, no Tailwind, no external CSS frameworks. The mobile-nav hamburger and the FAQ accordion are both done with pure CSS / native HTML5 (checkbox toggle and <code>&lt;details&gt;</code>) — zero JS.</p>
+
+          <h2>🔗 Project Overview</h2>
+          <ul>
+            <li><code>index.html</code> — landing page that introduces the project and links to both versions</li>
+            <li><code>flexbox.html</code> — the pricing page laid out with <strong>Flexbox only</strong></li>
+            <li><code>grid.html</code> — the pricing page laid out with <strong>CSS Grid only</strong></li>
+          </ul>
+          <p>Both pricing pages share the same HTML structure, content, and visual design — only the CSS technique used to arrange the three pricing cards differs, so the comparison is a fair, apples-to-apples test.</p>
+
+          <h2>✨ Features</h2>
+          <ul>
+            <li>Sticky, responsive header with logo, nav links, and CTA buttons</li>
+            <li>Pure-CSS mobile hamburger menu (checkbox toggle, no JS)</li>
+            <li>Clean white background with a warm gold-metallic accent, Playfair Display + Poppins type pairing</li>
+            <li>Gradient hero section with heading, subtitle, and dual CTAs</li>
+            <li>Three pricing cards: <strong>Basic</strong>, <strong>Pro</strong> (highlighted), <strong>Enterprise</strong>
+              <ul>
+                <li>"Most Popular" badge and scale effect on the Pro plan</li>
+                <li>Hover lift animation, rounded corners, soft shadows on every card</li>
+              </ul>
+            </li>
+            <li>FAQ accordion built with native HTML5 <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> — no JavaScript</li>
+            <li>Fully responsive: 3 columns (desktop) → 2 columns (tablet) → 1 column (mobile)</li>
+            <li>Footer with brand blurb, original SVG social icons, and copyright</li>
+            <li>CSS custom properties (variables) for colors, spacing, shadows, and radii</li>
+            <li>Semantic HTML5 (<code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>, <code>details</code>)</li>
+            <li>Accessible: skip link, visible focus states, <code>aria-label</code>s on icon-only links</li>
+          </ul>
+
+          <h2>📁 Folder Structure</h2>
+          <pre><code>Responsive-Layouts/
+│
+├── index.html            # Landing page linking to both versions
+├── flexbox.html          # Pricing page — Flexbox layout
+├── grid.html              # Pricing page — Grid layout
+├── README.html            # This page (browser-readable docs)
+├── comparison.html        # Flexbox vs Grid write-up (browser-readable)
+├── css/
+│   ├── common.css        # Shared: variables, header, hero, card content, footer
+│   ├── flexbox.css       # Flexbox-only rules for the pricing card container
+│   ├── grid.css            # Grid-only rules for the pricing card container
+│   ├── index.css          # Page-specific styles for index.html only
+│   └── docs.css            # Typography for README.html / comparison.html
+├── assets/                 # Reserved for images/icons
+├── README.md               # Markdown source (for GitHub)
+└── comparison.md           # Markdown source (for GitHub)</code></pre>
+
+          <blockquote>
+            <p><strong>Note on <code>common.css</code>:</strong> a shared file was used instead of duplicating the header, hero, footer, and card-content CSS inside both <code>flexbox.css</code> and <code>grid.css</code>. <code>common.css</code> contains <strong>zero rules for the pricing-card container</strong> — that layout logic lives entirely in <code>flexbox.css</code> (<code>display: flex</code>) or <code>grid.css</code> (<code>display: grid</code>), so each version still stands on its own as a pure Flexbox / pure Grid implementation of the part being tested.</p>
+          </blockquote>
+
+          <h2>🛠️ Technologies Used</h2>
+          <ul>
+            <li><strong>HTML5</strong> — semantic markup</li>
+            <li><strong>CSS3</strong> — Flexbox, Grid, custom properties, gradients, transitions, media queries</li>
+            <li><strong>Google Fonts</strong> — Poppins &amp; Playfair Display</li>
+            <li>No JavaScript, no build tools, no frameworks</li>
+          </ul>
+
+          <h2>▶️ How to Run</h2>
+          <p>No build step or server required.</p>
+          <ol>
+            <li>Download / clone the <code>Responsive-Layouts</code> folder.</li>
+            <li>Open <code>index.html</code> directly in any modern browser.</li>
+            <li>From there, click <strong>View Flexbox Demo</strong> or <strong>Compare Grid Demo</strong>, or open <code>flexbox.html</code> / <code>grid.html</code> directly.</li>
+          </ol>
+          <p>Optional — serve locally instead of opening the file directly:</p>
+          <pre><code>cd Responsive-Layouts
+python3 -m http.server 8080
+# then visit http://localhost:8080</code></pre>
+
+          <h2>🧪 Try It Responsively</h2>
+          <p>Resize your browser window or open DevTools → Toggle Device Toolbar to see the pricing cards reflow:</p>
+          <table>
+            <thead>
+              <tr><th>Breakpoint</th><th>Layout</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Desktop (&gt; 900px)</td><td>Basic · Pro · Enterprise in one row</td></tr>
+              <tr><td>Tablet (600px – 900px)</td><td>Basic + Pro in one row, Enterprise spans below</td></tr>
+              <tr><td>Mobile (&lt; 600px)</td><td>Basic → Pro → Enterprise, stacked</td></tr>
+            </tbody>
+          </table>
+
+          <h2>📄 Related Docs</h2>
+          <p>See <a href="comparison.html">comparison.html</a> for a written breakdown of when to use Flexbox vs. Grid, and which was easier for this specific pricing layout.</p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Flexbox vs Grid Demo. Built for a frontend internship task.</p>
+        <div class="footer-links">
+          <a href="flexbox.html">Flexbox Version</a>
+          <a href="grid.html">Grid Version</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

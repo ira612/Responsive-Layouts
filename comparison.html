@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparison — Flexbox vs Grid Demo</title>
+  <meta name="description" content="A written comparison of Flexbox and CSS Grid, based on building the same pricing layout with both.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/docs.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">Flexbox <span>vs Grid</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="flexbox.html">Flexbox Version</a>
+        <a href="grid.html">Grid Version</a>
+        <a href="README.html">Read Me</a>
+        <a href="comparison.html">Comparison</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="flexbox.html" class="btn btn-outline">Flexbox</a>
+        <a href="grid.html" class="btn btn-primary">Grid</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="doc">
+      <div class="container">
+        <div class="doc-content">
+
+          <a href="index.html" class="doc-back-link">&larr; Back to project home</a>
+
+          <h1>Flexbox vs. CSS Grid — Comparison</h1>
+          <p>Both <code>flexbox.html</code> and <code>grid.html</code> render the identical pricing section. Building it twice made the tradeoffs concrete rather than theoretical.</p>
+
+          <h2>Which one was easier for this pricing layout?</h2>
+          <p><strong>Flexbox was easier for the base case, but Grid made the responsive re-ordering cleaner.</strong></p>
+          <p>For a simple "3 equal cards in a row that wrap on small screens," Flexbox took less code: <code>display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;</code> on the container plus a <code>flex-basis</code> on each card was enough to get a working, responsive row. Grid needed one extra concept up front — naming each card's grid area — but that setup paid off at the tablet breakpoint, where Enterprise needed to visually span a full row below Basic and Pro. In Grid, that's a two-line change to <code>grid-template-areas</code>. In Flexbox, the equivalent relies purely on source order and <code>flex-wrap</code>, with no extra property needed at all — which is arguably even simpler, as long as the order you want on screen matches the order in the HTML.</p>
+
+          <h2>When Flexbox is better</h2>
+          <ul>
+            <li><strong>One-dimensional layouts</strong> — a single row or column of items, like this card row, a navbar, or a button group.</li>
+            <li><strong>Content-driven sizing</strong> — when you want items to size themselves based on their content and share leftover space (<code>flex-grow</code>/<code>flex-shrink</code>).</li>
+            <li><strong>Simple, predictable wrapping</strong> — <code>flex-wrap</code> combined with <code>flex-basis</code> is a fast way to get "as many as fit per row" behavior.</li>
+            <li><strong>Alignment-heavy UI</strong> — centering a single item, distributing icons/buttons evenly, vertically centering content in a card.</li>
+          </ul>
+
+          <h2>When Grid is better</h2>
+          <ul>
+            <li><strong>Two-dimensional layouts</strong> — anything that needs to control rows <em>and</em> columns at once, like a full page shell, a dashboard, or a photo gallery.</li>
+            <li><strong>Explicit structural placement</strong> — <code>grid-template-areas</code> lets you name regions ("basic", "pro", "enterprise") and rearrange them per breakpoint without touching the HTML order.</li>
+            <li><strong>Overlapping or precise spans</strong> — a card that should span two columns, or elements that intentionally overlap, are far more natural in Grid.</li>
+            <li><strong>Layouts defined "top-down"</strong> — when you know the shape of the layout first (e.g., "2 columns, second row spans full width") and want to declare it directly, rather than building it up item-by-item.</li>
+          </ul>
+
+          <h2>Advantages &amp; disadvantages</h2>
+
+          <h3>Flexbox</h3>
+          <p><strong>Advantages</strong></p>
+          <ul>
+            <li>Less code for simple rows/columns</li>
+            <li>Great content-based sizing and space distribution</li>
+            <li>Very predictable wrapping behavior with <code>flex-wrap</code></li>
+            <li>Slightly wider legacy browser support</li>
+          </ul>
+          <p><strong>Disadvantages</strong></p>
+          <ul>
+            <li>Only one axis at a time — reordering across both rows and columns needs the <code>order</code> property, which can make source order and visual order diverge</li>
+            <li>Wrapping items don't automatically align into clean columns across rows (no built-in row/column tracks)</li>
+            <li>Precise placement (e.g., "put this in row 2, column 1") isn't a first-class feature</li>
+          </ul>
+
+          <h3>CSS Grid</h3>
+          <p><strong>Advantages</strong></p>
+          <ul>
+            <li>True two-dimensional control over rows and columns</li>
+            <li><code>grid-template-areas</code> gives readable, self-documenting layout structure</li>
+            <li>Visual reordering per breakpoint is declared directly in the areas map, without changing HTML order</li>
+            <li>Handles complex, asymmetric layouts (spans, overlaps) naturally</li>
+          </ul>
+          <p><strong>Disadvantages</strong></p>
+          <ul>
+            <li>Slightly steeper learning curve (template areas, track sizing, implicit vs explicit grids)</li>
+            <li>Can feel like overkill for simple single-row/column components</li>
+            <li>A little more upfront planning needed to name areas and columns correctly</li>
+          </ul>
+
+          <h2>Takeaway</h2>
+          <p>For <strong>this specific pricing section</strong>, both approaches produced the same visual result and neither was "wrong." Flexbox was faster to reach for and reads simply for a single row of cards. Grid required a touch more setup but made the tablet/mobile re-ordering more declarative and easier to reason about without depending on source order lining up with visual order. In practice, many production UIs use <strong>both together</strong> — Grid for the page/section-level structure, Flexbox for the smaller components inside each grid cell (which is exactly what this project's card internals — icon + text rows in the feature list — already do).</p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Flexbox vs Grid Demo. Built for a frontend internship task.</p>
+        <div class="footer-links">
+          <a href="flexbox.html">Flexbox Version</a>
+          <a href="grid.html">Grid Version</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
